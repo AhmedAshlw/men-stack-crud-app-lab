@@ -14,46 +14,16 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 
-const home = app.get("/", (req, res, next) => {
-    res.render('index.ejs');
-  });
-
- //FOOD
- app.get('/foods', foodsCtrl.index);
-
- const newFood = app.get("/foods/new", (req, res) => {
-    res.render("foods/new.ejs");
-  });
-
-const findFood = app.get("/foods/:foodId", async (req, res) => {
-    const food = await Food.findById(req.params.foodId);
-    res.render('foods/show.ejs', {food});
-})
-
-const readyFood = app.post("/foods",  async (req, res, next) => {
-  await Food.create(req.body);
-  res.redirect("/foods"); 
-});
-
-const Foodidx = app.get("/foods", async (req, res) => {
-  const allFoods = await Food.find();
-  res.render("foods/index.ejs", { foods: allFoods });
-});
-
-const FoodDelete = app.delete("/foods/:foodId", async (req, res) => {
-  await Food.findByIdAndDelete(req.params.foodId);
-  res.redirect("/foods");
-});
-
-const FoodEdit = app.get("/foods/:foodId/edit", async (req, res) => {
-  const food = await Food.findById(req.params.foodId);
-  res.render("foods/edit.ejs", {food});
-});
-
-const FoodUpdate =  app.put("/foods/:foodId", async (req, res) => {
-  await Food.findByIdAndUpdate(req.params.foodId, req.body);
-  res.redirect(`/foods/${req.params.foodId}`);
-});
+//ROUTES
+app.get('/', foodsCtrl.home);
+app.get('/foods/new', foodsCtrl.newFood);
+app.get('/foods/:foodId', foodsCtrl.findFood);
+app.post('/foods', foodsCtrl.readyFood);
+app.get('/foods', foodsCtrl.Foodidx);
+app.delete('/foods/:foodId', foodsCtrl.FoodDelete);
+app.get('/foods/:foodId/edit', foodsCtrl.FoodEdit);
+app.put('/foods/:foodId', foodsCtrl.FoodUpdate);
+app.get('/foods', foodsCtrl.index);
 
 
 app.listen(3000, () => {
