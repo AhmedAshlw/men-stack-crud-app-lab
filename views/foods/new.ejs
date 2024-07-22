@@ -11,17 +11,17 @@
     <form action="/foods" method="post">
         <div>
             <label for="name">Name:</label>
-            <input type="text" name="name" id="name">
+            <input type="text" name="name" id="name" required>
         </div> <br/>
 
         <div>
             <label for="description">Describe it:</label>
-            <textarea name="description" id="description"></textarea>
+            <textarea name="description" id="description" required></textarea>
         </div> <br/>
 
         <div>
             <label for="image">Image:</label>
-            <input type="text" name="image" id="image">
+            <input type="text" name="image" id="image" required>
         </div>
         
         <button type="submit">Add Food</button>

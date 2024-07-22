@@ -6,12 +6,11 @@
     <title><%= food.name %></title> <!-- Dynamic title based on fruit name -->
   </head>
   <body>
+    <h1>Food Details</h1>
     <ul>
-        <% foods.forEach((food) => { %>
-            <li><a href="/foods/<%= food._id %>"> <%= food.name %> </a></li>
-            <li><a href="/foods/<%= food._id %>"> <%= food.description %> </a></li>
-            <li><a href="/foods/<%= food._id %>"> <%= food.image %> </a></li>
-        <% }) %>
+            <li>Name:<a href="/foods/<%= food._id %>"></a> <%= food.name %> </li>
+            <li>Description:<a href="/foods/<%= food._id %>"></a> <%= food.description %> </li>
+            <li>Image:<a href="/foods/<%= food._id %>"></a> <%= food.image %> </li>
     </ul>
     <!-- new delete button -->
     <form action="/foods/<%=food._id%>?_method=DELETE" method="POST">
@@ -19,6 +18,6 @@
       </form>
       <!-- add edit page link here -->
       <a href="/foods/<%= food._id %>/edit">Edit <%= food.name %></a>
-      <a href="/foods">Back to Fruits</a>
+      <a href="/foods">Back to Food</a>
   </body>
 </html>
