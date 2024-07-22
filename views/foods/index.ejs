@@ -8,7 +8,12 @@
 <body>
     <h1>All Food</h1>
     <!-- views/Foods/index.ejs -->
-    <a href="/foods/new">Add New Fruit</a>
-
+    <a href="/foods/new">Add New Food</a>
+    
+    <ul>
+        <% foods.forEach((food) => { %>
+            <li><a href="/foods/<%= food._id %>"> <%= food.name %> </a></li>
+        <% }) %>
+    </ul>
 </body>
 </html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= food.name %></title> <!-- Dynamic title based on fruit name -->
+  </head>
+  <body>
+    <ul>
+        <% foods.forEach((food) => { %>
+            <li><a href="/foods/<%= food._id %>"> <%= food.name %> </a></li>
+            <li><a href="/foods/<%= food._id %>"> <%= food.description %> </a></li>
+            <li><a href="/foods/<%= food._id %>"> <%= food.image %> </a></li>
+        <% }) %>
+    </ul>
+    <!-- new delete button -->
+    <form action="/foods/<%=food._id%>?_method=DELETE" method="POST">
+        <button type="submit">Delete <%= food.name %></button>
+      </form>
+      <!-- add edit page link here -->
+      <a href="/foods/<%= food._id %>/edit">Edit <%= food.name %></a>
+      <a href="/foods">Back to Fruits</a>
+  </body>
+</html>
