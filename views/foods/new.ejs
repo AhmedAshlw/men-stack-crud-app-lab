@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Food</title>
+</head>
+<body>
+    <a href="/foods/">Back to Food</a>
+    <h1>Create a New Fruit!</h1>
+    <form action="/foods" method="post">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name">
+        </div> <br/>
+
+        <div>
+            <label for="type">Type:</label>
+            <select name="type" id="type">
+                <option value="">Select One</option>
+                <option value="Breakfast">Breakfast</option>
+                <option value="Lunch">Lunch</option>
+                <option value="Dinner">Dinner</option>
+                <option value="Snacks">Snacks</option>
+                <option value="Other">Other</option>
+            </select>
+        </div> <br/>
+
+        <div>
+            <label for="isReadyToEat">Ready to eat?</label>
+            <input type="checkbox" name="isReadyToEat" id="isReadyToEat">
+        </div> <br/>
+        <button type="submit">Add Food</button>
+    </form>
+</body>
+</html>
